@@ -1,0 +1,190 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Set up variables */
+:root {
+    --moderate-violet: hsl(263, 55%, 52%);
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --very-dark-blackish-blue: hsl(219, 29%, 14%);
+    --white: hsl(0, 0%, 100%);
+    --light-gray: hsl(0, 0%, 81%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+
+    --barlow: 'Barlow Semi Condensed', sans-serif;
+
+    --fw-regular: 500;
+    --fw-bold: 600;
+}
+
+/* Start CSS Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+p,
+h1 {
+    overflow-wrap: break-word;
+}
+
+/* End CSS Reset */
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    font-family: var(--barlow);
+    font-weight: var(--fw-regular);
+
+    background-color: var(--light-grayish-blue);
+}
+
+h1,
+h2,
+h3 {
+    font-weight: var(--fw-bold);
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-info {
+    font-size: 0.75rem;
+}
+
+.user-info .position {
+    color: var(--light-gray);
+    font-weight: var(--fw-regular);
+}
+
+.middle-content {
+    margin: 1rem 0;
+    font-size: 1.12rem;
+    line-height: 1.2;
+
+    font-weight: var(--fw-bold);
+}
+
+.white-text {
+    color: var(--white);
+}
+
+.gray-text {
+    color: var(--light-gray);
+}
+
+.opacity {
+    opacity: 0.7;
+}
+
+.position.dark {
+    color: var(--very-dark-grayish-blue);
+}
+
+/* Mobile First Design*/
+.testimonials {
+    display: grid;
+    gap: 1.5rem;
+    grid-auto-columns: 1fr;
+    grid-template-areas:
+        'one'
+        'two'
+        'three'
+        'four'
+        'five';
+    padding: 1rem;
+}
+
+.testimonial {
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+}
+
+.testimonial:nth-child(1) {
+    background-color: var(--moderate-violet);
+    grid-area: one;
+}
+
+.testimonial:nth-child(2) {
+    background-color: var(--very-dark-grayish-blue);
+    grid-area: two;
+}
+
+.testimonial:nth-child(3) {
+    background-color: var(--white);
+    grid-area: three;
+}
+
+.testimonial:nth-child(4) {
+    background-color: var(--very-dark-blackish-blue);
+    grid-area: four;
+}
+
+.testimonial:nth-child(5) {
+    background-color: var(--white);
+    grid-area: five;
+}
+
+.testimonial.quote {
+    background-image: url("./images/bg-pattern-quotation.svg");
+    background-repeat: no-repeat;
+    background-position: top right 6rem;
+}
+
+.testimonial img {
+    width: 2rem;
+    border-radius: 50%;
+}
+
+
+/* Media Queries */
+
+@media screen and (min-width: 528px) {
+    .testimonials {
+        grid-template-areas:
+            "one one"
+            "two three"
+            "five five"
+            "four four";
+    }
+}
+
+@media screen and (min-width: 608px) {
+    .testimonials {
+        grid-template-areas:
+            'one one'
+            'two five'
+            'three five'
+            'four four';
+    }
+}
+
+@media screen and (min-width: 864px) {
+    .testimonials {
+        grid-template-areas:
+            "one one two"
+            "five five five"
+            "three four four";
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .testimonials {
+        grid-template-areas:
+            "one one two five"
+            "three four four five";
+    }
+}
